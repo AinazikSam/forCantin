@@ -10,6 +10,7 @@ from .serializers import LoginSerializer
 class LoginView(ObtainAuthToken):
     serializer_class = LoginSerializer
 
+
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 

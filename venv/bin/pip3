@@ -1,4 +1,4 @@
-#!/home/baiel/forCantin/venv/bin/python3
+#!/home/virus/forCantin/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
