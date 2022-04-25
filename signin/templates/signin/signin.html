@@ -83,46 +83,55 @@
             color: #03e9f4;
             font-size: 12px;
         }
+
     </style>
     <title>Welcome</title>
 </head>
 <body>
 <div class="container h-100">
     <div class="main_container">
-    <div class="user_card">
-        <div class="d-flex justify-content-center">
-            <h3 id="form-title">LOGIN</h3>
-        </div>
-        <div class="demo">
-            <form method="POST" action="signin">
-                {% csrf_token %}
-                <div class="input-group mb-2">
-                    <input type="text" name="username" required="">
-                    <label>Email</label>
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <h3 id="form-title">LOGIN</h3>
+            </div>
+            <div class="demo">
+                <form method="POST" action="signin">
+                    {% csrf_token %}
+                    <div class="input-group mb-2">
+                        <input type="text" name="username" required="">
+                        <label>Email</label>
+                    </div>
+                    <div class="input-group mb-2">
+                        <input type="password" name="password" required="">
+                        <label>Password</label>
+                    </div>
+                    <button style="border-radius:10px;border: 0;font-size: 1.2rem;font-weight:400;margin: 0,5rem 0;padding:0.7rem 2rem;text-transform:uppercase;cursor: pointer;position:absolute; top:82%;margin-left: 90px;"
+                            type="submit">
+                        <span></span>
+                        <span></span>
+
+                        <span></span>
+                        <span></span>
+                        Sign in
+                    </button>
+                </form>
+
+            </div>
+            {% for message in messages%}
+            <p id="messages">{{message}}</p>
+            {% endfor %}
+            <div>
+                <div>
+                    {% if user.is_authenticated %}
+                    Welcome {{ user.username }}!
+                    {% else %}
+                    <p>You are not logged in</p>
+                    <a href="{% url 'signin' %}">Log In</a>
+                    {% endif %}
                 </div>
-                <div class="input-group mb-2">
-                    <input type="password" name="password" required="">
-                    <label>Password</label>
-                </div>
-                <button style="border-radius:10px;border: 0;font-size: 1.2rem;font-weight:400;margin: 0,5rem 0;padding:0.7rem 2rem;text-transform:uppercase;cursor: pointer;position:absolute; top:82%;margin-left: 90px;">
-                    <span></span>
-                    <span></span>
-
-                    <span></span>
-                    <span></span>
-                    Sign in
-                </button>
-            </form>
-
-        </div>
-        {% for message in messages%}
-        <p id="messages">{{message}}</p>
-        {% endfor %}
-        <div>
-
+            </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>

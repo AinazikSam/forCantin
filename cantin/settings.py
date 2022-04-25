@@ -38,7 +38,7 @@ ROOT_URLCONF = 'cantin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -53,7 +53,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cantin.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -64,7 +63,6 @@ DATABASES = {
         'PORT': 5432
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -101,3 +99,4 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'account.User'
+LOGIN_REDIRECT_URL = "/"

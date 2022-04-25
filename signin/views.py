@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from . import forms
 
@@ -15,7 +15,7 @@ def signin(request):
             )
             if user is not None:
                 login(request, user)
-                message = f'Hello {user.username}! You have been logged in'
+                redirect('home')
             else:
                 message = 'Login failed!'
     return render(
