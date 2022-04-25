@@ -2,6 +2,7 @@ from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.core.mail import send_mail
 from django.db import models
 
+
 class UserManager(BaseUserManager):
     def _create(self, email, password, **extra_fields):
         if not email:
@@ -23,8 +24,6 @@ class UserManager(BaseUserManager):
         return self._create(email, password, **extra_fields)
 
 
-
-
 class User(AbstractBaseUser):
     email = models.EmailField(primary_key=True)
     name = models.CharField(max_length=50, blank=True)
@@ -44,5 +43,3 @@ class User(AbstractBaseUser):
 
     def has_perm(self, obj=None):
         return self.is_staff
-
-

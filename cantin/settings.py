@@ -19,9 +19,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'drf_yasg',
-    'login',
     'SuperB',
-
+    'signin',
 ]
 
 MIDDLEWARE = [
@@ -95,7 +94,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication'
